@@ -1,0 +1,7 @@
+history:
+- version: 0.0.14
+  date: 2024-08-22
+  changes:
+  - text: Add user manual files
+  - text: Store ROI and crosshairs in relative coordinates
+  - text: Minor fixes

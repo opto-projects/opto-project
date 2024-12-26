@@ -1,0 +1,7 @@
+project(plugins)
+
+add_subdirectory(opto_demo_extension)
+add_subdirectory(opto_virtual_oct_system)
+add_subdirectory(CameraExtension)
+add_subdirectory(AxialPsfAnalyzerExtension)
+add_subdirectory(ImageStatisticsExtension)
