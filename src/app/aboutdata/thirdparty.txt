@@ -1,0 +1,2 @@
+<li><b>QCustomPlot</b>: <a href="https://www.qcustomplot.com">https://www.qcustomplot.com</a></li>
+<li><b>Qt</b>: <a href="https://www.qt.io">https://www.qt.io</a></li>

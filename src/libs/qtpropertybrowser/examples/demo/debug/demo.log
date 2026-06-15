@@ -1,0 +1,4 @@
+﻿  Qt: Untested Windows version 10.0 detected!
+  Reading Qt configuration (D:/Toolkit/Qt/Qt5.4.2/5.4/msvc2013_opengl/bin/qmake)
+  main.cpp
+  demo.vcxproj -> D:\Projects\Qt_Projects\QtPropertyBrowser\examples\demo\debug\demo.exe

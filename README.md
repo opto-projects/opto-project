@@ -35,6 +35,3 @@ opto-project/
 ©¦   ©À©¤©¤ default/  
 ©¦   ©À©¤©¤ icon/  
 
-
-
-

@@ -1,0 +1,14 @@
+﻿  Qt: Untested Windows version 10.0 detected!
+  Reading Qt configuration (D:/Toolkit/Qt/Qt5.4.2/5.4/msvc2013_opengl/bin/qmake)
+  qtbuttonpropertybrowser.cpp
+  qtgroupboxpropertybrowser.cpp
+  qtpropertybrowser.cpp
+  qtpropertybrowserutils.cpp
+  qtvariantproperty.cpp
+  qrc_qtpropertybrowser.cpp
+  moc_qtpropertybrowserutils_p.cpp
+  main.cpp
+  qteditorfactory.cpp
+  qtpropertymanager.cpp
+  qttreepropertybrowser.cpp
+  extension.vcxproj -> D:\Projects\Qt_Projects\QtPropertyBrowser\examples\extension\debug\extension.exe

@@ -1,6 +1,13 @@
 
-#include "octproz.h"
+//#include "widget/cmainwindow.h"
+#include "window/PlotWindow.h"
 #include <QApplication>
+#include <QTranslator>
+#include <QStyleFactory>
+#include <QDir>
+#include <QPalette>
+
+
 
 void style() {
 	qApp->setStyleSheet(
@@ -37,6 +44,23 @@ void style() {
 	qApp->setFont(font);
 }
 
+//创建加载翻译
+void loadTranslator() {
+	QTranslator translator;
+	// 获取系统语言
+	QString locale = QLocale::system().name(); // 例如 "zh_CN"
+	if (locale.contains("zh"))
+	{
+		locale = "zh_CN";
+
+		QString qmPath = QDir::currentPath() + "/app_" + locale + ".qm";
+
+		if (translator.load(":/app/translations/app_" + locale + ".qm")) {
+			qApp->installTranslator(&translator);
+		}
+	}
+}
+
 int main(int argc, char *argv[]) {
 	QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
 	QCoreApplication::setAttribute(Qt::AA_DontCheckOpenGLContextThreadAffinity);
@@ -44,9 +68,17 @@ int main(int argc, char *argv[]) {
 	QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
 	QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 #endif
-	QApplication a(argc, argv);
+
+	QApplication app(argc, argv);
+	app.setApplicationName("Opto cameraworker checker");
+	app.setOrganizationName("optochecker.com");
+	app.setApplicationVersion(QString("%1.%2.%3").arg(APP_VER_MAJOR).arg(APP_VER_MINOR).arg(APP_VER_PATCH));
+	app.setApplicationName("OptoChecker");
+
 	style();
-	OCTproZ w;
+	loadTranslator();
+
+	PlotWindow w;
 	w.show();
-	return a.exec();
+	return app.exec();
 }

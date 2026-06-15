@@ -1,0 +1,56 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "simple", "D:/Projects/Qt_Projects/QtPropertyBrowser/examples/simple\simple.vcxproj", "{131DF2AC-0381-3978-879F-9AC47F6BB00B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "canvas_variant", "D:/Projects/Qt_Projects/QtPropertyBrowser/examples/canvas_variant\canvas_variant.vcxproj", "{5B74090C-7BDD-37C7-89D1-766DE50316DE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "canvas_typed", "D:/Projects/Qt_Projects/QtPropertyBrowser/examples/canvas_typed\canvas_typed.vcxproj", "{E7829FF2-67AD-3FCC-8F27-BBFB567CF8BE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "demo", "D:/Projects/Qt_Projects/QtPropertyBrowser/examples/demo\demo.vcxproj", "{DACB740E-BD79-3F07-9DAD-F357AD2A5B0D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "decoration", "D:/Projects/Qt_Projects/QtPropertyBrowser/examples/decoration\decoration.vcxproj", "{F9EB0FC4-5272-393E-8B6D-107DE7349326}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "extension", "D:/Projects/Qt_Projects/QtPropertyBrowser/examples/extension\extension.vcxproj", "{38780025-56BA-3D96-9034-F5ABF8467B9B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "object_controller", "D:/Projects/Qt_Projects/QtPropertyBrowser/examples/object_controller\object_controller.vcxproj", "{6E07B035-AB51-30F5-BD92-9661D648B272}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{131DF2AC-0381-3978-879F-9AC47F6BB00B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{131DF2AC-0381-3978-879F-9AC47F6BB00B}.Debug|Win32.Build.0 = Debug|Win32
+		{131DF2AC-0381-3978-879F-9AC47F6BB00B}.Release|Win32.ActiveCfg = Release|Win32
+		{131DF2AC-0381-3978-879F-9AC47F6BB00B}.Release|Win32.Build.0 = Release|Win32
+		{5B74090C-7BDD-37C7-89D1-766DE50316DE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5B74090C-7BDD-37C7-89D1-766DE50316DE}.Debug|Win32.Build.0 = Debug|Win32
+		{5B74090C-7BDD-37C7-89D1-766DE50316DE}.Release|Win32.ActiveCfg = Release|Win32
+		{5B74090C-7BDD-37C7-89D1-766DE50316DE}.Release|Win32.Build.0 = Release|Win32
+		{E7829FF2-67AD-3FCC-8F27-BBFB567CF8BE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E7829FF2-67AD-3FCC-8F27-BBFB567CF8BE}.Debug|Win32.Build.0 = Debug|Win32
+		{E7829FF2-67AD-3FCC-8F27-BBFB567CF8BE}.Release|Win32.ActiveCfg = Release|Win32
+		{E7829FF2-67AD-3FCC-8F27-BBFB567CF8BE}.Release|Win32.Build.0 = Release|Win32
+		{DACB740E-BD79-3F07-9DAD-F357AD2A5B0D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DACB740E-BD79-3F07-9DAD-F357AD2A5B0D}.Debug|Win32.Build.0 = Debug|Win32
+		{DACB740E-BD79-3F07-9DAD-F357AD2A5B0D}.Release|Win32.ActiveCfg = Release|Win32
+		{DACB740E-BD79-3F07-9DAD-F357AD2A5B0D}.Release|Win32.Build.0 = Release|Win32
+		{F9EB0FC4-5272-393E-8B6D-107DE7349326}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F9EB0FC4-5272-393E-8B6D-107DE7349326}.Debug|Win32.Build.0 = Debug|Win32
+		{F9EB0FC4-5272-393E-8B6D-107DE7349326}.Release|Win32.ActiveCfg = Release|Win32
+		{F9EB0FC4-5272-393E-8B6D-107DE7349326}.Release|Win32.Build.0 = Release|Win32
+		{38780025-56BA-3D96-9034-F5ABF8467B9B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{38780025-56BA-3D96-9034-F5ABF8467B9B}.Debug|Win32.Build.0 = Debug|Win32
+		{38780025-56BA-3D96-9034-F5ABF8467B9B}.Release|Win32.ActiveCfg = Release|Win32
+		{38780025-56BA-3D96-9034-F5ABF8467B9B}.Release|Win32.Build.0 = Release|Win32
+		{6E07B035-AB51-30F5-BD92-9661D648B272}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6E07B035-AB51-30F5-BD92-9661D648B272}.Debug|Win32.Build.0 = Debug|Win32
+		{6E07B035-AB51-30F5-BD92-9661D648B272}.Release|Win32.ActiveCfg = Release|Win32
+		{6E07B035-AB51-30F5-BD92-9661D648B272}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
