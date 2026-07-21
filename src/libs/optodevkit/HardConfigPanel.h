@@ -21,4 +21,12 @@ public:
     StubHardConfigPanel(QWidget *parent);
 };
 
+class StubPropPanel : public HardConfigPanel
+{
+    Q_OBJECT
+
+public:
+    StubPropPanel(QWidget* parent);
+};
+
 #endif // HARD_CONFIG_PANEL_H

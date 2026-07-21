@@ -205,7 +205,7 @@ void PlotWindow::createContent()
 {
 	createPlot();
     createHardConfigDockWidget();
-	createSystemSettingsDockWidget();
+	createPropertyDockWidget();
 	createMessageConsoleDockWidget();
     createResultsPanelDockWidget();
 
@@ -267,15 +267,13 @@ void PlotWindow::createResultsPanelDockWidget()
 	this->viewToolBar->addAction(actionResultsPanel);
 }
 
-void PlotWindow::createSystemSettingsDockWidget()
+void PlotWindow::createPropertyDockWidget()
 {
-	this->_tree = new QTreeWidget(this);
-	this->_tree->setObjectName("Property");
-	
-	prepareDockWidget(this->_tree, tr("Property"), ads::LeftDockWidgetArea, 
-		this->actionSystemSettings, QIcon(":/icons/octproz_rawsignal_icon.png"), tr("Property"));
+	propPanel = new StubPropPanel(this);
+	propDockWidget = prepareDockWidget(this->propPanel, tr("Property"), ads::LeftDockWidgetArea,
+		this->actionProperty, QIcon(":/icons/octproz_rawsignal_icon.png"), tr("Property"));
 
-	this->viewToolBar->addAction(actionSystemSettings);
+	this->viewToolBar->addAction(actionProperty);
 }
 
 void PlotWindow::loadSettings()
@@ -399,6 +397,7 @@ void PlotWindow::createMenuBar()
 	this->actionStart->setEnabled(false);
 	this->actionStop->setEnabled(false);
 	this->actionMeasure->setEnabled(false);
+	this->actionSystemSettings->setEnabled(false);
 
 	viewToolBar = this->addToolBar(tr("View Toolbar"));
 	viewToolBar->setObjectName("View Toolbar");
@@ -576,6 +575,17 @@ void PlotWindow::updateHardConfigDockWidget()
 	}
 }
 
+void PlotWindow::updatePropDockWidget()
+{
+	if (propPanel && propPanel != (QWidget*)(currSystem->propPanel(this)))
+	{
+		propPanel->deleteLater();
+		propPanel = (QWidget*)(currSystem->propPanel(this));
+		propDockWidget->setWidget(propPanel);
+	}
+
+}
+
 ads::CDockWidget* PlotWindow::prepareDockWidget(QWidget* widgetForDock,
 	QString docktitle, 
 	ads::DockWidgetArea area, 
@@ -601,15 +611,16 @@ ads::CDockWidget* PlotWindow::prepareDockWidget(QWidget* widgetForDock,
 
 void PlotWindow::updateControls()
 {
-	bool opened = currSystem && currSystem->isAcquisition();
+	bool isOpen = (bool)currSystem;
+	bool isAcquisition = currSystem && currSystem->isAcquisition();
 	bool started = (bool)_saver;
 
-	actionSelectSystem->setDisabled(started);
-	actionSystemSettings->setDisabled(started || !opened);
-	actionStart->setDisabled(opened);
-	actionStop->setDisabled(started || !opened);
+	actionSelectSystem->setDisabled(isOpen);
+	actionSystemSettings->setDisabled(!isOpen || started);
+	actionStart->setDisabled(isAcquisition);
+	actionStop->setDisabled(started || !isAcquisition);
 	actionMeasure->setText(started ? tr("Stop Measurements") : tr("Start Measurements"));
-	actionMeasure->setDisabled(!opened);
+	actionMeasure->setDisabled(!isAcquisition);
 
 	//hardConfigPanel->setReadOnly(started || !opened);
 }
@@ -892,7 +903,7 @@ void PlotWindow::slot_start() {
 		}
 	}
 	updateHardConfigDockWidget();
-
+	updatePropDockWidget();
 	//save current parameters to hdd
 	this->saveSettings();
 

@@ -80,6 +80,7 @@ public:
 	void initPlotIntf(PlotIntf* plotIntf)override;
 
 	HardConfigPanel* hardConfgPanel(QWidget* parent) override;
+	QWidget* propPanel(QWidget* parent) override;
 
 	virtual bool editConfig(int page = -1) override;
 

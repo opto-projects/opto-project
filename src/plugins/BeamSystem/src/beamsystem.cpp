@@ -76,7 +76,9 @@ bool BeamSystem::init() {
 
     qDebug() << "BeamSystem init. Thread ID: " << QThread::currentThreadId();
 	//check if user selected file can be opened 
-    _qmmCore->core_.setProperty("Camera", "PixelType", "8bit");
+    std::vector<std::string> proplist = _qmmCore->core_.getAllowedPropertyValues("Camera", "PixelType");
+    unsigned index = 1;
+    _qmmCore->core_.setProperty("Camera", "PixelType", proplist[index].c_str());
     _qmmCore->snapImage();
 
 	this->currParams.width = _qmmCore->getImageWidth();
@@ -278,9 +280,6 @@ void BeamSystem::stopMeasure()
 
 HardConfigPanel* BeamSystem::hardConfgPanel(QWidget* parent)
 {
-    _qmmCore->propertBrowser->refreshDeviceList();
-    return _qmmCore->propertBrowser;
-
     if (!_configPanel) {
         auto getCamProp = [this](IdsHardConfigPanel::CamProp prop) -> QVariant {
             switch (prop) {
@@ -311,7 +310,7 @@ HardConfigPanel* BeamSystem::hardConfgPanel(QWidget* parent)
             }
         };
         auto requestBrightness = [this](QObject* s) { this->requestBrightness(s); };
-        auto exposureChanged = [this] {
+        auto exposureChanged = [this]() {
             
             this->raisePowerWarning();
             //requestExpWarning();
@@ -320,6 +319,12 @@ HardConfigPanel* BeamSystem::hardConfgPanel(QWidget* parent)
             getCamProp, setCamProp, requestBrightness, exposureChanged, parent);
     }
     return _configPanel;
+}
+
+QWidget* BeamSystem::propPanel(QWidget* parent)
+{
+    _qmmCore->propertBrowser->refreshDeviceList();
+    return _qmmCore->propertBrowser;
 }
 
 void BeamSystem::initPlotIntf(PlotIntf* plotIntf)

@@ -22,6 +22,7 @@ if(WITH_CUDA)
 endif()
 
 if(WITH_OPENCV)
+
     find_package(OpenCV COMPONENTS core highgui imgproc REQUIRED)
     #if(OpenCV_VERSION_MAJOR GREATER 2)
         # for opencv >= 3 we need the imgcodecs module which is not present in opencv < 3 so run again
@@ -30,7 +31,7 @@ if(WITH_OPENCV)
     #endif(OpenCV_VERSION_MAJOR GREATER 2)
     
     set(OpenCV_LIBRARY_DIRS "${OpenCV_INSTALL_PATH}/x64/vc15/bin")
-    
+
     message(STATUS "--------------- OpenCV_LIBRARS ${OpenCV_LIBS} OpenCV_INCLUDE_DIRS ${OpenCV_INCLUDE_DIRS} -----------------")
 endif()
 

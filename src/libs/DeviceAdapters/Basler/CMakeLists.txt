@@ -7,7 +7,7 @@ message(STATUS "-- Source directory: ${CMAKE_CURRENT_SOURCE_DIR}")
 
 set(PYLON_ROOT $ENV{PYLON_DEV_DIR})
 if (NOT DEFINED ENV{PYLON_DEV_DIR})
-    set(PYLON_ROOT "C:\Program Files\Basler\pylon 5\Development")
+    set(PYLON_ROOT "D:\Program Files\Basler\pylon 5\Development")
 endif()
 set(PYLON_LIB_DIR ${PYLON_ROOT}/lib/x64)
 set(PYLON_INC_DIR  ${PYLON_ROOT}/include)

@@ -59,15 +59,15 @@ private:
 	QAction* actionStart, * actionStop, * actionMeasure,* actionWelcome,
 		 * actionSaveRaw,
 		* actionTemp, * actionSelectSystem, * actionSystemSettings,
-		* actionMessageConsole, *actionResultsPanel, *actionHardConfig;
+		* actionMessageConsole, *actionResultsPanel, * actionProperty, *actionHardConfig;
 
 	MeasureProgressBar* _measureProgress ;
-	QTreeWidget* _tree;
 	StatusBar* _statusBar;
 
 	AboutDialog* aboutWindow;
 	MessageConsole* console;
 	HardConfigPanel*hardConfigPanel,* stubConfigPanel;
+	QWidget* propPanel;
 	QTableWidget* resultPanel;
 
 	TableIntf* _tableIntf;
@@ -102,7 +102,7 @@ private:
 	void createMessageConsoleDockWidget();
 	void createResultsPanelDockWidget();
 	void createHardConfigDockWidget();
-	void createSystemSettingsDockWidget();
+	void createPropertyDockWidget();
 	ads::CDockWidget* prepareDockWidget(QWidget* widgetForDock, QString title,ads::DockWidgetArea area, QAction*& action, const QIcon& icon, QString iconText);
 
 	void loadSettings();
@@ -111,7 +111,7 @@ private:
 	void saveMainWindowSettings();
 	void loadSettingsFromFile(const QString& settingsFilePath);
 	void updateHardConfigDockWidget();
-
+	void updatePropDockWidget();
 	void updateControls();
 	void showFps(double fps, double hardFps);
 public slots:

@@ -56,8 +56,8 @@ bool QMMCore::LoadSystem()
     }
 
     core_.setPrimaryLogFile("app.log", true);
-    core_.loadDevice("Camera", "FakeCamera", "FakeCamera");
-
+    core_.loadDevice("Camera", "BaslerCamera", "BaslerCamera");
+    core_.setProperty("Camera", "SerialNumber", "24820829");
     emit info(QString("Init Sytem: %1").arg(QString("Camera")));
 
     return 1;

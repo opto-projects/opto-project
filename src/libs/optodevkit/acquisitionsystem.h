@@ -64,6 +64,7 @@ public:
 
     virtual void saveHardConfig(QSettings*) {}
     virtual HardConfigPanel* hardConfgPanel(QWidget* parent) { return nullptr; }
+    virtual QWidget* propPanel(QWidget* parent) { return nullptr; }
 
     virtual QList<QPair<int, QString>> measurCols() const { return {}; }
     virtual bool editConfig(int page = -1) { return false; }

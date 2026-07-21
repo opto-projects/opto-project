@@ -293,33 +293,33 @@ public:
         PROP_CONTROL(DigitalGain, tr("Digital gain"))
 
 
-        vertMirror = new QCheckBox(tr("Mirror vertically"));
+        //vertMirror = new QCheckBox(tr("Mirror vertically"));
 
-        bool flipx = hCam->hasProperty("Camera", "FlipX");
+        //bool flipx = hCam->hasProperty("Camera", "FlipX");
 
-        if (flipx) {
-            vertMirror->setChecked(true);
-        } else {
-            vertMirror->setChecked(false);
-            vertMirrorIPL = true;
-        }
-        connect(vertMirror, &QCheckBox::toggled, this, &IdsHardConfigPanelImpl::toggleVertMirror);
-        layout->addWidget(vertMirror);
+        //if (flipx) {
+        //    vertMirror->setChecked(true);
+        //} else {
+        //    vertMirror->setChecked(false);
+        //    vertMirrorIPL = true;
+        //}
+        //connect(vertMirror, &QCheckBox::toggled, this, &IdsHardConfigPanelImpl::toggleVertMirror);
+        //layout->addWidget(vertMirror);
 
-        horzMirror = new QCheckBox(tr("Mirror horizontally"));
-        int flipy = QString::fromStdString(hCam->getProperty("Camera", "FlipY")).toInt();
-        if (flipy == 1) {
-            horzMirror->setChecked(true);
-        } else {
-            horzMirror->setChecked(false);
-            horzMirrorIPL = true;
-        }
-        connect(horzMirror, &QCheckBox::toggled, this, &IdsHardConfigPanelImpl::toggleHorzMirror);
-        layout->addWidget(horzMirror);
+        //horzMirror = new QCheckBox(tr("Mirror horizontally"));
+        //int flipy = QString::fromStdString(hCam->getProperty("Camera", "FlipY")).toInt();
+        //if (flipy == 1) {
+        //    horzMirror->setChecked(true);
+        //} else {
+        //    horzMirror->setChecked(false);
+        //    horzMirrorIPL = true;
+        //}
+        //connect(horzMirror, &QCheckBox::toggled, this, &IdsHardConfigPanelImpl::toggleHorzMirror);
+        //layout->addWidget(horzMirror);
 
-        // TODO: mirroring doesn't work, while works in IDS Cockpit for the same camera
-        vertMirror->setVisible(false);
-        horzMirror->setVisible(false);
+        //// TODO: mirroring doesn't work, while works in IDS Cockpit for the same camera
+        //vertMirror->setVisible(false);
+        //horzMirror->setVisible(false);
 
         layout->addStretch();
     }
@@ -565,7 +565,7 @@ public:
         }
         showExp();
         showFps();
-        exposureChanged();
+        //exposureChanged();
         if (fpsLock > 0) {
             showFpsLock();
             setFpsRaw(fpsLock, false);
@@ -616,33 +616,33 @@ public:
         {
             log() << "target_level=" << targetLevel << " avg_frames=" << subStepMax;
 
-            if (auto res = mImpl->ExposureTime_GetRange(expMin, expMax, expStep); (res)) {
+            if (auto res = mImpl->ExposureTime_GetRange(expMin, expMax, expStep); (!res)) {
                 QString msg = QString("Failed to get exposure range: %1").arg((res));
                 error(msg);
                 log() << msg;
                 return false;
             }
             exp = expMin;
-            if (auto res = mImpl->SetExposure( exp); (res)) {
+            if (auto res = mImpl->SetExposure( exp); (!res)) {
                 QString msg = QString("Failed to set exposure to %1: %2").arg(exp).arg((res));
                 error(msg);
                 log() << msg;
                 return false;
             }
             double fpsMin, fpsMax, fpsInc;
-            if (auto res = mImpl->FrameRate_GetRange( fpsMin, fpsMax, fpsInc); (res)) {
+            /*if (auto res = mImpl->FrameRate_GetRange( fpsMin, fpsMax, fpsInc); (!res)) {
                 QString msg = QString("Failed to get FPS range: %1").arg((res));
                 error(msg);
                 log() << msg;
                 return false;
             }
             fps = fpsMax;
-            if (auto res = mImpl->SetFrameRate( fps); (res)) {
+            if (auto res = mImpl->SetFrameRate( fps); (!res)) {
                 QString msg = QString("Failed to set FPS to %1: %2").arg(fps).arg((res));
                 error(msg);
                 log() << msg;
                 return false;
-            }
+            }*/
             exp1 = exp;
             exp2 = 0;
             step = 0;
@@ -997,7 +997,7 @@ public:
             }
             parent->bulkSetProps = false;
             parent->highightPreset();
-            parent->exposureChanged();
+            //parent->exposureChanged();
             if (!failed.empty())
                 ;// Ori::Dlg::warning(tr("Preset are not fully applied. Failed to set some properties: %1").arg(failed.join(", ")));
         }
